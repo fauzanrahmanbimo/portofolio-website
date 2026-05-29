@@ -12,10 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
             if (word.length > 0) {
                 typingTextElement.innerHTML += word.shift();
             } else {
-                setTimeout(deletingEffect, 2000); // Tunggu 2 detik sebelum menghapus
+                setTimeout(deletingEffect, 2000); 
                 return false;
             }
-            timer = setTimeout(loopTyping, 100); // Kecepatan mengetik
+            timer = setTimeout(loopTyping, 100); 
         };
         loopTyping();
     }
@@ -27,19 +27,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 word.pop();
                 typingTextElement.innerHTML = word.join("");
             } else {
-                // Pindah ke kata berikutnya
                 i = (i + 1) % words.length;
-                setTimeout(typingEffect, 500); // Jeda sebelum kata baru muncul
+                setTimeout(typingEffect, 500); 
                 return false;
             }
-            timer = setTimeout(loopDeleting, 50); // Kecepatan menghapus
+            timer = setTimeout(loopDeleting, 50); 
         };
         loopDeleting();
     }
 
-    // Mulai efek typing
     typingEffect();
-
 
     // --- 2. EFEK SCROLL REVEAL (MUNCUL SAAT DI-SCROLL) ---
     const reveals = document.querySelectorAll(".reveal");
@@ -48,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
         for (let i = 0; i < reveals.length; i++) {
             let windowHeight = window.innerHeight;
             let elementTop = reveals[i].getBoundingClientRect().top;
-            let elementVisible = 100; // Jarak trigger dari bawah layar
+            let elementVisible = 100; 
 
             if (elementTop < windowHeight - elementVisible) {
                 reveals[i].classList.add("active");
@@ -56,9 +53,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Jalankan saat layar di-scroll
     window.addEventListener("scroll", revealOnScroll);
-    
-    // Jalankan sekali saat pertama kali dimuat
     revealOnScroll();
 });
