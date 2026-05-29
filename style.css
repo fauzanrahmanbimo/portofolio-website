@@ -1,4 +1,4 @@
-/* Pengaturan Dasar dengan Tema Merah Bimo */
+/* Pengaturan Dasar */
 :root {
     --primary-bg: #CD3A1F; 
     --bg-gradient: radial-gradient(circle at center, #e84c30 0%, #a62a13 100%);
@@ -32,12 +32,12 @@ body {
     padding: 80px 20px;
 }
 
-/* Navigasi */
+/* Navigasi & Logo Profil */
 header {
     background-color: rgba(205, 58, 31, 0.8);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    padding: 10px 5%; /* Padding dikecilkan sedikit agar navbar tidak terlalu tebal */
+    padding: 10px 5%;
     position: fixed;
     width: 100%;
     top: 0;
@@ -54,27 +54,25 @@ nav {
     align-items: center;
 }
 
-/* FOTO PROFIL SEBAGAI LOGO DI KIRI ATAS */
 .logo {
     display: block;
-    width: 60px; /* Ukuran diameter foto */
-    height: 60px;
-    border-radius: 50%; /* Membuat frame melingkar */
+    width: 55px; 
+    height: 55px;
+    border-radius: 50%;
     overflow: hidden;
-    border: 3px solid var(--text-main);
+    border: 2px solid var(--text-main);
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     transition: transform 0.3s ease;
 }
 
 .logo:hover {
-    transform: scale(1.1); /* Efek membesar saat disentuh kursor */
+    transform: scale(1.1);
 }
 
 .nav-profile-pic {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top; /* Memastikan wajah fokus di tengah */
 }
 
 nav ul {
@@ -95,13 +93,13 @@ nav ul li a:hover {
     color: var(--text-main);
 }
 
-/* Hero Section - Dikembalikan ke Tengah */
+/* Hero Section - Khusus 1 Baris Lurus */
 #hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center; /* Teks rata tengah */
+    text-align: center;
     padding: 100px 20px 0;
 }
 
@@ -110,45 +108,45 @@ nav ul li a:hover {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 1100px;
+    overflow: hidden; /* Mencegah layar geser horizontal */
 }
 
 .hero-text-wrapper {
     position: relative;
     display: inline-block;
-    margin-bottom: 40px;
-    padding: 20px 40px;
+    margin-bottom: 30px;
+    padding: 30px 20px;
 }
 
 .hero-tag-left {
     position: absolute;
-    top: -10px;
-    left: 0;
+    top: 5px;
+    left: 20px;
     color: var(--text-muted);
     font-weight: 700;
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-size: clamp(0.9rem, 1.5vw, 1.2rem);
     letter-spacing: 3px;
 }
 
 .hero-tag-right {
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: -5px;
+    right: 20px;
     color: var(--text-muted);
     font-weight: 700;
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-size: clamp(0.9rem, 1.5vw, 1.2rem);
     letter-spacing: 3px;
 }
 
 #hero h1 {
-    font-size: clamp(2.5rem, 6vw, 6rem); /* Ukuran disesuaikan agar muat 1 baris */
+    /* Angka 6.5vw memastikan font merespons presisi terhadap lebar layar */
+    font-size: clamp(1.8rem, 6vw, 5rem); 
     color: var(--text-main);
     font-weight: 900;
     text-transform: uppercase;
     line-height: 1.1;
-    letter-spacing: -2px;
     margin: 0;
-    text-align: center; /* Dikembalikan ke posisi tengah */
+    white-space: nowrap; /* MENGUNCI TEKS AGAR TETAP 1 BARIS */
 }
 
 .typing-container {
@@ -304,14 +302,8 @@ footer p {
     transform: translateY(0);
 }
 
-/* Responsivitas Mobile */
+/* Responsivitas Mobile Khusus Navigasi */
 @media (max-width: 768px) {
-    .hero-tag-left { top: -25px; left: 50%; transform: translateX(-50%); }
-    .hero-tag-right { bottom: -25px; right: 50%; transform: translateX(50%); }
-    
-    #hero h1 { text-align: center; }
-    
-    /* Navbar menu penyesuaian di mobile */
     nav { flex-direction: column; gap: 15px; }
     nav ul { flex-wrap: wrap; justify-content: center; }
 }
