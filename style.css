@@ -17,7 +17,7 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif; /* Ini yang diubah */
+    font-family: 'Poppins', sans-serif;
     color: var(--text-muted);
     line-height: 1.7;
     background-color: var(--primary-bg);
@@ -51,10 +51,19 @@ nav {
     align-items: center;
 }
 
+/* Update Logo Layout */
 nav .logo {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 900;
     color: var(--text-main);
+    letter-spacing: 0.5px;
+    display: flex;
+    gap: 6px;
+}
+
+nav .logo span {
+    font-weight: 400;
+    opacity: 0.8;
 }
 
 nav ul {
@@ -75,20 +84,39 @@ nav ul li a:hover {
     color: var(--text-main);
 }
 
-/* Hero Section - Desain Poster */
+/* Hero Section - Layout Kiri Kanan */
 #hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    padding: 100px 20px 0;
+    text-align: left; /* Teks rata kiri */
+    padding: 120px 20px 0;
 }
 
 .hero-content {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    width: 100%;
+    max-width: 1100px;
+    gap: 40px;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.personal-portrait {
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 15px 35px rgba(0,0,0,0.3)); /* Efek bayangan pada foto */
 }
 
 .hero-text-wrapper {
@@ -119,7 +147,7 @@ nav ul li a:hover {
 }
 
 #hero h1 {
-    font-size: clamp(3.5rem, 12vw, 9rem); /* Teks dibuat sangat besar dan responsif */
+    font-size: clamp(3.5rem, 12vw, 9rem);
     color: var(--text-main);
     font-weight: 900;
     text-transform: uppercase;
@@ -152,14 +180,14 @@ nav ul li a:hover {
     50% { opacity: 0; }
 }
 
-/* Tombol (Inverted untuk tema merah) */
+/* Tombol */
 .btn {
     display: inline-block;
     background-color: var(--text-main);
     color: var(--primary-bg);
     padding: 12px 35px;
     text-decoration: none;
-    border-radius: 50px; /* Bentuk pil agar lebih modern */
+    border-radius: 50px;
     font-weight: 700;
     transition: all 0.3s ease;
     border: 2px solid var(--text-main);
@@ -204,7 +232,7 @@ h2::after {
     border-radius: 2px;
 }
 
-/* Glassmorphism Cards (Untuk About, Skills, Portfolio) */
+/* Glassmorphism Cards */
 .glass-card {
     background: var(--glass-bg);
     backdrop-filter: blur(12px);
@@ -264,7 +292,7 @@ h2::after {
 
 /* Footer / Contact */
 footer {
-    background-color: rgba(0, 0, 0, 0.3); /* Sedikit lebih gelap sebagai penutup */
+    background-color: rgba(0, 0, 0, 0.3);
     border-top: 1px solid var(--glass-border);
     text-align: center;
     padding-bottom: 40px;
@@ -302,8 +330,25 @@ footer p {
     transform: translateY(0);
 }
 
-/* Responsivitas Tambahan untuk Layout Typo Hero */
+/* Responsivitas Tambahan untuk Layout Typo Hero & Mobile */
 @media (max-width: 768px) {
     .hero-tag-left { top: -25px; }
     .hero-tag-right { bottom: -25px; }
+    
+    /* Penyesuaian Layout Hero di HP */
+    .hero-content {
+        flex-direction: column-reverse; /* Foto pindah ke atas teks saat di HP */
+        text-align: center;
+        margin-top: 40px;
+    }
+    
+    .hero-image {
+        justify-content: center;
+    }
+    
+    .hero-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
