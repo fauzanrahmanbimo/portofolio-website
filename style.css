@@ -17,11 +17,11 @@
 }
 
 body {
-    font-family: 'Maven Pro', sans-serif;
+    font-family: 'Poppins', sans-serif; /* Ini yang diubah */
     color: var(--text-muted);
     line-height: 1.7;
     background-color: var(--primary-bg);
-    background-image: var(--bg-gradient); /* Memberikan efek vignette seperti poster */
+    background-image: var(--bg-gradient);
     background-attachment: fixed;
     overflow-x: hidden;
 }
