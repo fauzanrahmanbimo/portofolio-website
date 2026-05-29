@@ -32,7 +32,7 @@ body {
     padding: 80px 20px;
 }
 
-/* Navigasi & Logo Profil */
+/* Navigasi */
 header {
     background-color: rgba(205, 58, 31, 0.8);
     backdrop-filter: blur(10px);
@@ -93,7 +93,7 @@ nav ul li a:hover {
     color: var(--text-main);
 }
 
-/* Hero Section - Khusus 1 Baris Lurus */
+/* Hero Section */
 #hero {
     min-height: 100vh;
     display: flex;
@@ -108,7 +108,7 @@ nav ul li a:hover {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    overflow: hidden; /* Mencegah layar geser horizontal */
+    overflow: hidden;
 }
 
 .hero-text-wrapper {
@@ -139,14 +139,13 @@ nav ul li a:hover {
 }
 
 #hero h1 {
-    /* Angka 6.5vw memastikan font merespons presisi terhadap lebar layar */
     font-size: clamp(1.8rem, 6vw, 5rem); 
     color: var(--text-main);
     font-weight: 900;
     text-transform: uppercase;
     line-height: 1.1;
     margin: 0;
-    white-space: nowrap; /* MENGUNCI TEKS AGAR TETAP 1 BARIS */
+    white-space: nowrap; 
 }
 
 .typing-container {
@@ -173,23 +172,25 @@ nav ul li a:hover {
     50% { opacity: 0; }
 }
 
-/* Tombol */
+/* Tombol (Call to Action) */
 .btn {
     display: inline-block;
     background-color: var(--text-main);
     color: var(--primary-bg);
-    padding: 12px 35px;
+    padding: 14px 40px;
     text-decoration: none;
     border-radius: 50px;
     font-weight: 700;
+    font-size: 16px;
     transition: all 0.3s ease;
     border: 2px solid var(--text-main);
+    cursor: pointer;
 }
 
 .btn:hover {
     background-color: transparent;
     color: var(--text-main);
-    transform: translateY(-3px);
+    transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
@@ -232,7 +233,6 @@ h2::after {
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--glass-border);
     border-radius: 16px;
-    padding: 40px 30px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, background 0.3s ease;
 }
@@ -242,24 +242,78 @@ h2::after {
     background: var(--glass-hover);
 }
 
+/* Section Tentang & Keahlian */
 .about-content p {
     font-size: 18px;
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
+    padding: 40px 30px;
 }
 
-/* Skills & Portfolio Grid */
-.skills-grid, .portfolio-grid {
+.skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
 
-.skill-card h3, .port-content h3 {
+.skill-card {
+    padding: 40px 30px;
+}
+
+.skill-card h3 {
     color: var(--text-main);
     margin-bottom: 15px;
-    font-size: 22px;
+    font-size: 20px;
+}
+
+/* PORTFOLIO GRID & FRAME (FOTO) */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.port-card {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.port-frame {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Format persegi panjang memanjang */
+    overflow: hidden;
+    background: rgba(0,0,0,0.2);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+/* Khusus Sertifikat: Format gambar tidak terlalu panjang (A4/Letter) */
+.cert-frame {
+    aspect-ratio: 4 / 3; 
+}
+
+.port-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* Efek Zoom saat di-hover */
+.port-card:hover .port-frame img {
+    transform: scale(1.08); 
+}
+
+.port-content {
+    padding: 30px;
+    flex-grow: 1;
+}
+
+.port-content h3 {
+    color: var(--text-main);
+    margin-bottom: 15px;
+    font-size: 20px;
 }
 
 /* Footer / Contact */
@@ -302,7 +356,7 @@ footer p {
     transform: translateY(0);
 }
 
-/* Responsivitas Mobile Khusus Navigasi */
+/* Responsivitas Mobile */
 @media (max-width: 768px) {
     nav { flex-direction: column; gap: 15px; }
     nav ul { flex-wrap: wrap; justify-content: center; }
