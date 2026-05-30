@@ -298,6 +298,7 @@ h2::after {
     transition: transform 0.5s ease;
 }
 
+/* Efek zoom target untuk semua port-frame */
 .port-card:hover .port-frame img {
     transform: scale(1.08); 
 }
@@ -313,6 +314,7 @@ h2::after {
     object-fit: contain;
 }
 
+/* Efek zoom lebih kecil untuk dokumen sertifikat agar tidak terpotong */
 .port-card:hover .cert-frame img {
     transform: scale(1.04);
 }
