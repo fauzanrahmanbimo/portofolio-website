@@ -4,7 +4,7 @@
     --bg-gradient: radial-gradient(circle at center, #e84c30 0%, #a62a13 100%);
     --text-main: #ffffff;
     --text-muted: rgba(255, 255, 255, 0.9);
-    --glass-bg: rgba(0, 0, 0, 0.25); /* Sedikit digelapkan agar teks lebih kontras */
+    --glass-bg: rgba(0, 0, 0, 0.25);
     --glass-border: rgba(255, 255, 255, 0.15);
     --glass-hover: rgba(0, 0, 0, 0.4);
 }
@@ -32,7 +32,7 @@ body {
     padding: 80px 20px;
 }
 
-/* --- ANIMASI SCROLL REVEAL (Tambahan yang sebelumnya hilang) --- */
+/* Animasi Scroll Reveal */
 .reveal {
     opacity: 0;
     transform: translateY(50px);
@@ -270,7 +270,7 @@ h2::after {
     font-size: 20px;
 }
 
-/* PORTFOLIO GRID & FRAME (FOTO) */
+/* Portfolio Grid & Frame */
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -302,19 +302,19 @@ h2::after {
     transform: scale(1.08); 
 }
 
-/* Khusus Frame Sertifikat agar proporsional dan tidak terpotong */
+/* Khusus Frame Sertifikat */
 .cert-frame {
     aspect-ratio: 4 / 3; 
-    background-color: #ffffff; /* Background putih agar sertifikat transparan/putih menonjol */
-    padding: 10px; /* Memberi ruang di sekitar dokumen */
+    background-color: #ffffff;
+    padding: 10px; 
 }
 
 .cert-frame img {
-    object-fit: contain; /* Mengubah dari cover ke contain agar dokumen tidak terpotong */
+    object-fit: contain;
 }
 
 .port-card:hover .cert-frame img {
-    transform: scale(1.04); /* Zoomnya diperkecil sedikit khusus untuk dokumen */
+    transform: scale(1.04);
 }
 
 .port-content {
@@ -330,7 +330,7 @@ h2::after {
     font-size: 20px;
 }
 
-/* --- PERBAIKAN: Tombol Sertifikat (Menggantikan Link Biru) --- */
+/* Tombol Kredensial */
 .credential-btn {
     display: inline-flex;
     align-items: center;
@@ -342,7 +342,7 @@ h2::after {
     font-weight: 700;
     text-decoration: none;
     border-radius: 30px;
-    margin-top: auto; /* Mendorong tombol ke bagian bawah card */
+    margin-top: auto; 
     transition: all 0.3s ease;
     width: fit-content;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
