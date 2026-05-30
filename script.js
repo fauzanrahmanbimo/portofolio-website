@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function typingEffect() {
         let word = words[i].split("");
-        var loopTyping = function() {
+        const loopTyping = function() {
             if (word.length > 0) {
                 typingTextElement.innerHTML += word.shift();
             } else {
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function deletingEffect() {
         let word = words[i].split("");
-        var loopDeleting = function() {
+        const loopDeleting = function() {
             if (word.length > 0) {
                 word.pop();
                 typingTextElement.innerHTML = word.join("");
@@ -54,5 +54,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     window.addEventListener("scroll", revealOnScroll);
-    revealOnScroll();
+    revealOnScroll(); // Trigger sekali saat halaman pertama dimuat
 });
