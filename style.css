@@ -330,7 +330,7 @@ h2::after {
     font-size: 20px;
 }
 
-/* Tombol Kredensial */
+/* Tombol Kredensial / Link Proyek */
 .credential-btn {
     display: inline-flex;
     align-items: center;
