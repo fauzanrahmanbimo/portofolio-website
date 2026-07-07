@@ -3,27 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Website portofolio Bimo Rahman Fauzan, Creative Engineer, IoT Developer, Video Editor Lead, dan Tech Leader." />
-
+  <meta name="description" content="Portofolio Bimo Rahman Fauzan — Creative Engineer, IoT Developer, Video Editor Lead, dan Tech Leader." />
   <title>Bimo Rahman Fauzan | Creative Engineer</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
   <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="page-noise" aria-hidden="true"></div>
 
-  <header>
-    <nav>
-      <a href="#hero" class="logo" aria-label="Kembali ke halaman utama">
-        <img src="BIMO.png" alt="Bimo Rahman Fauzan" class="nav-profile-pic" />
+  <header class="site-header">
+    <nav class="navbar" aria-label="Navigasi utama">
+      <a href="#hero" class="brand" aria-label="Bimo Rahman Fauzan">
+        <span class="brand-mark">
+          <img src="BIMO.png" alt="Foto profil Bimo Rahman Fauzan" />
+        </span>
+        <span class="brand-text">Bimo</span>
       </a>
 
-      <button class="menu-toggle" type="button" aria-label="Buka menu navigasi">
+      <button class="menu-toggle" type="button" aria-label="Buka menu" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
@@ -34,327 +36,302 @@
         <li><a href="#skills">Keahlian</a></li>
         <li><a href="#portfolio">Portofolio</a></li>
         <li><a href="#business">Bisnis</a></li>
-        <li><a href="#contact">Kontak</a></li>
+        <li><a href="#contact" class="nav-cta">Kontak</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <section id="hero">
-      <div class="hero-content">
-        <div class="hero-text-wrapper">
-          <span class="hero-tag-left">CREATIVE</span>
-          <h1>BIMO RAHMAN FAUZAN</h1>
-          <span class="hero-tag-right">FG/VG</span>
+    <section id="hero" class="hero-section">
+      <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+
+      <div class="hero-inner">
+        <div class="social-proof reveal-up">
+          <span class="avatar-stack" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </span>
+          <p>Creative engineer dengan pengalaman multimedia, IoT, dan leadership.</p>
         </div>
 
-        <p class="typing-container">
-          Saya seorang <span id="typing-text"></span><span class="cursor">|</span>
-        </p>
-
-        <a href="#contact" class="btn">Hubungi Saya Sekarang</a>
-      </div>
-
-      <div class="scroll-indicator" aria-hidden="true">
-        <span></span>
-      </div>
-    </section>
-
-    <section id="about" class="reveal">
-      <div class="container">
-        <h2>Tentang Saya</h2>
-
-        <div class="glass-card about-content">
-          <p>
-            Mahasiswa Pendidikan Teknik Elektro di Universitas Pendidikan Indonesia dengan IPK 3.98.
-            Saya adalah seorang <strong>Creative Engineer</strong> yang menggabungkan kedisiplinan
-            rekayasa teknik dengan keahlian multimedia visual. Memiliki rekam jejak profesional
-            memimpin produksi puluhan konten digital berstandar industri, serta kompetensi adaptif
-            di bidang teknologi dan komunikasi.
+        <div class="hero-title-wrap" aria-label="Bimo Rahman Fauzan Creative Engineer">
+          <p class="eyebrow reveal-up">CREATIVE ENGINEER</p>
+          <h1 class="hero-title">
+            <span class="line"><em>Bimo</em> Rahman</span>
+            <span class="line">Fauzan</span>
+          </h1>
+          <p class="hero-subtitle reveal-up">
+            Saya seorang <span id="typing-text"></span><span class="typing-cursor">|</span>
           </p>
         </div>
+
+        <p class="hero-copy reveal-up">
+          Menggabungkan teknik elektro, IoT, AI, produksi media, dan visual storytelling
+          untuk membangun karya yang fungsional, komunikatif, dan berdampak.
+        </p>
+
+        <div class="hero-actions reveal-up">
+          <a href="#portfolio" class="btn btn-primary">Lihat Karya</a>
+          <a href="#contact" class="btn btn-secondary">Hubungi Saya</a>
+        </div>
+      </div>
+
+      <div class="hero-illustration reveal-scale" aria-hidden="true">
+        <div class="desk-card">
+          <div class="desk-line line-1"></div>
+          <div class="desk-line line-2"></div>
+          <div class="desk-monitor"></div>
+          <div class="desk-person"></div>
+          <div class="desk-plant"></div>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-hint" aria-label="Scroll ke bagian Tentang">
+        <span></span>
+      </a>
+    </section>
+
+    <section id="about" class="content-section about-section">
+      <div class="container">
+        <div class="section-heading reveal-up">
+          <p class="section-kicker">Tentang Saya</p>
+          <h2><em>Rekayasa</em> bertemu visual kreatif</h2>
+        </div>
+
+        <div class="about-grid">
+          <article class="feature-card about-main reveal-up">
+            <p>
+              Mahasiswa Pendidikan Teknik Elektro di Universitas Pendidikan Indonesia dengan IPK 3.98.
+              Saya adalah seorang <strong>Creative Engineer</strong> yang menggabungkan kedisiplinan
+              rekayasa teknik dengan keahlian multimedia visual. Memiliki rekam jejak profesional
+              memimpin produksi puluhan konten digital berstandar industri, serta kompetensi adaptif
+              di bidang teknologi dan komunikasi.
+            </p>
+          </article>
+
+          <div class="stats-grid reveal-up">
+            <article class="stat-card">
+              <strong>3.98</strong>
+              <span>IPK Akademik</span>
+            </article>
+            <article class="stat-card">
+              <strong>75+</strong>
+              <span>Video Diproduksi</span>
+            </article>
+            <article class="stat-card">
+              <strong>2025</strong>
+              <span>Salesforce Talent</span>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="skills" class="reveal">
+    <section id="skills" class="content-section skills-section">
       <div class="container">
-        <h2>Keahlian & Sertifikasi</h2>
+        <div class="section-heading reveal-up">
+          <p class="section-kicker">Keahlian & Sertifikasi</p>
+          <h2>Bangun skill yang <em>siap industri</em></h2>
+        </div>
 
-        <div class="skills-grid section-spacing">
-          <article class="skill-card glass-card">
-            <h3>⚙️ Technical Engineering</h3>
-            <p>
-              Artificial Intelligence (AI) Implementation, Internet of Things (IoT) Concepts,
-              Data Analysis. Tergabung dalam Salesforce Talent Accelerator Program 2025.
-            </p>
+        <div class="skills-grid">
+          <article class="feature-card skill-card reveal-up">
+            <span class="card-icon">⚙️</span>
+            <h3>Technical Engineering</h3>
+            <p>Artificial Intelligence implementation, Internet of Things concepts, dan data analysis.</p>
           </article>
 
-          <article class="skill-card glass-card">
-            <h3>🎬 Multimedia Production</h3>
-            <p>
-              Expert dalam Video Editing, Videography, Photography, Visual Storytelling.
-              Mahir menggunakan CapCut, Adobe Lightroom, Premiere, dan Canva.
-            </p>
+          <article class="feature-card skill-card reveal-up">
+            <span class="card-icon">🎬</span>
+            <h3>Multimedia Production</h3>
+            <p>Video editing, videography, photography, visual storytelling, CapCut, Lightroom, Premiere, dan Canva.</p>
           </article>
 
-          <article class="skill-card glass-card">
-            <h3>💼 Soft Skills & Leadership</h3>
-            <p>
-              Creative Leadership, Project Management, Public Speaking, Team Collaboration,
-              Time Management dalam mengelola proyek media kampus skala besar.
-            </p>
+          <article class="feature-card skill-card reveal-up">
+            <span class="card-icon">💼</span>
+            <h3>Leadership</h3>
+            <p>Creative leadership, project management, public speaking, team collaboration, dan time management.</p>
           </article>
         </div>
 
-        <div class="portfolio-grid">
-          <article class="port-card glass-card">
-            <div class="port-frame cert-frame">
-              <img src="WhatsApp Image 2026-02-24 at 23.52.03 (1).jpeg" alt="Sertifikat Data Scientist" />
-            </div>
-            <div class="port-content">
+        <div class="marquee reveal-up" aria-label="Daftar kompetensi">
+          <div class="marquee-track">
+            <span>AI</span><span>IoT</span><span>Video Editing</span><span>Photography</span><span>Leadership</span><span>Data Analysis</span>
+            <span>AI</span><span>IoT</span><span>Video Editing</span><span>Photography</span><span>Leadership</span><span>Data Analysis</span>
+          </div>
+        </div>
+
+        <div class="portfolio-grid certificate-grid">
+          <article class="project-card reveal-up">
+            <div class="project-media certificate-media"><img src="WhatsApp Image 2026-02-24 at 23.52.03 (1).jpeg" alt="Sertifikat Associate Data Scientist" /></div>
+            <div class="project-body">
+              <span class="project-tag">BNSP</span>
               <h3>Associate Data Scientist</h3>
-              <p>
-                Lisensi resmi dari Badan Nasional Sertifikasi Profesi (BNSP) melalui LSP Informatika.
-              </p>
-              <a href="WhatsApp Image 2026-02-24 at 23.52.03 (1).jpeg" target="_blank" rel="noopener noreferrer" class="credential-btn">
-                📄 Lihat Sertifikat (HD)
-              </a>
+              <p>Lisensi resmi dari Badan Nasional Sertifikasi Profesi melalui LSP Informatika.</p>
+              <a href="WhatsApp Image 2026-02-24 at 23.52.03 (1).jpeg" target="_blank" rel="noopener noreferrer" class="text-link">Lihat Sertifikat</a>
             </div>
           </article>
 
-          <article class="port-card glass-card">
-            <div class="port-frame cert-frame">
-              <img src="huawei-iot.jpeg" alt="Sertifikat Huawei AI & IoT" />
-            </div>
-            <div class="port-content">
+          <article class="project-card reveal-up">
+            <div class="project-media certificate-media"><img src="huawei-iot.jpeg" alt="Sertifikat Huawei AI dan IoT" /></div>
+            <div class="project-body">
+              <span class="project-tag">Huawei</span>
               <h3>AI & IoT Certification</h3>
-              <p>
-                Sertifikasi kompetensi adaptif teknologi dari Huawei Talent.
-              </p>
-              <a href="huawei-iot.jpeg" target="_blank" rel="noopener noreferrer" class="credential-btn">
-                📄 Lihat Sertifikat (HD)
-              </a>
+              <p>Sertifikasi kompetensi adaptif teknologi dari Huawei Talent.</p>
+              <a href="huawei-iot.jpeg" target="_blank" rel="noopener noreferrer" class="text-link">Lihat Sertifikat</a>
             </div>
           </article>
 
-          <article class="port-card glass-card">
-            <div class="port-frame cert-frame">
-              <img src="sertifikat_salesforce.jpg" alt="Sertifikat Salesforce" />
-            </div>
-            <div class="port-content">
-              <h3>Salesforce Talent Accelerator</h3>
-              <p>
-                Sertifikat kelulusan program akselerasi talenta intensif Trailhead & Capstone dari Salesforce.
-              </p>
-              <a href="sertifikat_salesforce.jpg" target="_blank" rel="noopener noreferrer" class="credential-btn">
-                📄 Lihat Sertifikat (HD)
-              </a>
+          <article class="project-card reveal-up">
+            <div class="project-media certificate-media"><img src="sertifikat_salesforce.jpg" alt="Sertifikat Salesforce Talent Accelerator" /></div>
+            <div class="project-body">
+              <span class="project-tag">Salesforce</span>
+              <h3>Talent Accelerator</h3>
+              <p>Sertifikat kelulusan program akselerasi talenta intensif Trailhead & Capstone.</p>
+              <a href="sertifikat_salesforce.jpg" target="_blank" rel="noopener noreferrer" class="text-link">Lihat Sertifikat</a>
             </div>
           </article>
 
-          <article class="port-card glass-card">
-            <div class="port-frame cert-frame">
-              <img src="certifikat_peer.jpg" alt="Sertifikat Peer Facilitator" />
-            </div>
-            <div class="port-content">
+          <article class="project-card reveal-up">
+            <div class="project-media certificate-media"><img src="certifikat_peer.jpg" alt="Sertifikat Peer Facilitator InnovAItion" /></div>
+            <div class="project-body">
+              <span class="project-tag">Facilitator</span>
               <h3>Peer Facilitator InnovAItion</h3>
-              <p>
-                Penghargaan dedikasi sebagai fasilitator dari Yayasan Plan International Indonesia & Kemenpora.
-              </p>
-              <a href="certifikat_peer.jpg" target="_blank" rel="noopener noreferrer" class="credential-btn">
-                📄 Lihat Sertifikat (HD)
-              </a>
+              <p>Penghargaan dedikasi dari Plan International Indonesia & Kemenpora.</p>
+              <a href="certifikat_peer.jpg" target="_blank" rel="noopener noreferrer" class="text-link">Lihat Sertifikat</a>
             </div>
           </article>
 
-          <article class="port-card glass-card">
-            <div class="port-frame cert-frame">
-              <img src="Sertifikat_plan_1.jpg" alt="Sertifikat Berinovasi dengan AI" />
-            </div>
-            <div class="port-content">
-              <h3>Training Berinovasi dengan AI</h3>
-              <p>
-                Sertifikat penyelesaian pelatihan kompetensi Artificial Intelligence 15 Jam Pelajaran
-                dari Kemenpora & Plan International.
-              </p>
-              <a href="Sertifikat_plan_1.jpg" target="_blank" rel="noopener noreferrer" class="credential-btn">
-                📄 Lihat Sertifikat (HD)
-              </a>
+          <article class="project-card reveal-up">
+            <div class="project-media certificate-media"><img src="Sertifikat_plan_1.jpg" alt="Sertifikat Training Berinovasi dengan AI" /></div>
+            <div class="project-body">
+              <span class="project-tag">AI Training</span>
+              <h3>Berinovasi dengan AI</h3>
+              <p>Pelatihan kompetensi Artificial Intelligence 15 jam pelajaran.</p>
+              <a href="Sertifikat_plan_1.jpg" target="_blank" rel="noopener noreferrer" class="text-link">Lihat Sertifikat</a>
             </div>
           </article>
 
-          <article class="port-card glass-card">
-            <div class="port-frame cert-frame">
-              <img src="BOOTCAMP MSIB.jpg" alt="Sertifikat MSIB Boostcamp" />
-            </div>
-            <div class="port-content">
+          <article class="project-card reveal-up">
+            <div class="project-media certificate-media"><img src="BOOTCAMP MSIB.jpg" alt="Sertifikat MSIB Boostcamp 2025" /></div>
+            <div class="project-body">
+              <span class="project-tag">Career</span>
               <h3>MSIB Boostcamp 2025</h3>
-              <p>
-                Sertifikat partisipasi pelatihan karir intensif "Skill Boosted, Career Unlocked"
-                dari Bakti Milenial & Kemenpora.
-              </p>
-              <a href="BOOTCAMP MSIB.jpg" target="_blank" rel="noopener noreferrer" class="credential-btn">
-                📄 Lihat Sertifikat (HD)
-              </a>
+              <p>Pelatihan karir intensif Skill Boosted, Career Unlocked.</p>
+              <a href="BOOTCAMP MSIB.jpg" target="_blank" rel="noopener noreferrer" class="text-link">Lihat Sertifikat</a>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="portfolio" class="reveal">
+    <section id="portfolio" class="content-section portfolio-section">
       <div class="container">
-        <h2>Karya & Track Record</h2>
+        <div class="section-heading reveal-up">
+          <p class="section-kicker">Karya & Track Record</p>
+          <h2>Portofolio nyata, <em>bukan sekadar tampilan</em></h2>
+        </div>
 
         <div class="portfolio-grid">
-          <article class="port-card glass-card">
-            <div class="port-frame cert-frame">
-              <img src="sertif_baktimilenial_bimo.jpg" alt="Sertifikat Bakti Milenial Foundation" />
-            </div>
-            <div class="port-content">
+          <article class="project-card reveal-up">
+            <div class="project-media certificate-media"><img src="sertif_baktimilenial_bimo.jpg" alt="Sertifikat Bakti Milenial Foundation" /></div>
+            <div class="project-body">
+              <span class="project-tag">Video Lead</span>
               <h3>Head of Video Editor</h3>
-              <p>
-                <strong>Bakti Milenial Foundation.</strong> Memimpin tim editing dan memproduksi
-                75+ video multi-platform TikTok, YouTube, dan Instagram dalam 3 bulan dengan
-                visual storytelling yang meningkatkan engagement.
-              </p>
-              <a href="sertif_baktimilenial_bimo.jpg" target="_blank" rel="noopener noreferrer" class="credential-btn">
-                📄 Lihat Detail (HD)
-              </a>
+              <p><strong>Bakti Milenial Foundation.</strong> Memimpin tim editing dan memproduksi 75+ video multi-platform dalam 3 bulan.</p>
+              <a href="sertif_baktimilenial_bimo.jpg" target="_blank" rel="noopener noreferrer" class="text-link">Lihat Detail</a>
             </div>
           </article>
 
-          <article class="port-card glass-card">
-            <div class="port-frame">
-              <img src="ndp.jpg" alt="Nonton Di Pojokan" />
-            </div>
-            <div class="port-content">
-              <h3>Nonton Di Pojokan (NDP)</h3>
-              <p>
-                <strong>Kreator Konten & Editor.</strong> Memproduksi tayangan video hiburan dan
-                diskusi dengan konsep visual kreatif bergaya retro TV untuk audiens mahasiswa.
-              </p>
-              <a href="https://www.youtube.com/watch?v=y83QNT0HTlU" target="_blank" rel="noopener noreferrer" class="credential-btn">
-                ▶️ Tonton Video
-              </a>
+          <article class="project-card reveal-up">
+            <div class="project-media"><img src="ndp.jpg" alt="Nonton Di Pojokan" /></div>
+            <div class="project-body">
+              <span class="project-tag">Content</span>
+              <h3>Nonton Di Pojokan</h3>
+              <p>Produksi tayangan video hiburan dan diskusi dengan konsep visual kreatif bergaya retro TV.</p>
+              <a href="https://www.youtube.com/watch?v=y83QNT0HTlU" target="_blank" rel="noopener noreferrer" class="text-link">Tonton Video</a>
             </div>
           </article>
 
-          <article class="port-card glass-card">
-            <div class="port-frame">
-              <img src="tutorial.jpeg" alt="Tutorial UPI" />
-            </div>
-            <div class="port-content">
+          <article class="project-card reveal-up">
+            <div class="project-media"><img src="tutorial.jpeg" alt="Tutorial UPI" /></div>
+            <div class="project-body">
+              <span class="project-tag">Campus Media</span>
               <h3>Ketua Multimedia Biro Visual</h3>
-              <p>
-                <strong>Tutorial UPI Video Terbaik 2024.</strong> Mengelola strategi konten media
-                sosial dan memimpin tim produksi video aftermovie & live report berskala universitas
-                menggunakan standar industri.
-              </p>
-              <a href="https://www.instagram.com/tutorialupi?igsh=MThzNDk2bGgxamxscg==" target="_blank" rel="noopener noreferrer" class="credential-btn">
-                📸 Lihat Instagram
-              </a>
+              <p><strong>Tutorial UPI.</strong> Mengelola strategi konten dan memimpin produksi video aftermovie & live report.</p>
+              <a href="https://www.instagram.com/tutorialupi?igsh=MThzNDk2bGgxamxscg==" target="_blank" rel="noopener noreferrer" class="text-link">Lihat Instagram</a>
             </div>
           </article>
 
-          <article class="port-card glass-card">
-            <div class="port-frame">
-              <img src="sre.jpeg" alt="SRE UPI" />
-            </div>
-            <div class="port-content">
+          <article class="project-card reveal-up">
+            <div class="project-media"><img src="sre.jpeg" alt="SRE UPI" /></div>
+            <div class="project-body">
+              <span class="project-tag">Campaign</span>
               <h3>Ketua Pelaksana Content Hub</h3>
-              <p>
-                <strong>SRE UPI.</strong> Memimpin pembuatan kampanye konten edukasi energi
-                terbarukan di media sosial, dari perencanaan ide hingga jadwal tayang dan manajemen
-                tim kreatif.
-              </p>
-              <a href="https://www.instagram.com/sre.upi?igsh=cmhkdWc3bmd1OHJv" target="_blank" rel="noopener noreferrer" class="credential-btn">
-                📸 Lihat Instagram
-              </a>
+              <p><strong>SRE UPI.</strong> Memimpin kampanye konten edukasi energi terbarukan dari ide sampai publikasi.</p>
+              <a href="https://www.instagram.com/sre.upi?igsh=cmhkdWc3bmd1OHJv" target="_blank" rel="noopener noreferrer" class="text-link">Lihat Instagram</a>
             </div>
           </article>
 
-          <article class="port-card glass-card">
-            <div class="port-frame">
-              <img src="studio_medkreinfo.jpg" alt="Studi Medkreinfo" />
-            </div>
-            <div class="port-content">
+          <article class="project-card reveal-up">
+            <div class="project-media"><img src="studio_medkreinfo.jpg" alt="Studi Medkreinfo" /></div>
+            <div class="project-body">
+              <span class="project-tag">Education</span>
               <h3>Studi Medkreinfo</h3>
-              <p>
-                <strong>Ketua Pelaksana.</strong> Merancang kurikulum materi dan menjalankan program
-                pelatihan keterampilan digital Fotografi, Videografi, dan Desain Grafis untuk mahasiswa.
-              </p>
+              <p>Merancang kurikulum dan menjalankan pelatihan fotografi, videografi, dan desain grafis.</p>
             </div>
           </article>
 
-          <article class="port-card glass-card">
-            <div class="port-frame">
-              <img src="podcast_pte.jpg" alt="Podcast PTE FPTI UPI" />
-            </div>
-            <div class="port-content">
+          <article class="project-card reveal-up">
+            <div class="project-media"><img src="podcast_pte.jpg" alt="Podcast PTE FPTI UPI" /></div>
+            <div class="project-body">
+              <span class="project-tag">Podcast</span>
               <h3>Podcast PTE</h3>
-              <p>
-                <strong>PTE FPTI UPI.</strong> Memproduksi serial konten video podcast profil alumni
-                dan mahasiswa. Bertanggung jawab atas kualitas rekaman, penyuntingan, hingga publikasi
-                seluruh episode.
-              </p>
-              <a href="https://www.youtube.com/playlist?list=PLTQAORNXz5YqY67lGYXMJbt1NCiSOsmYO" target="_blank" rel="noopener noreferrer" class="credential-btn">
-                📺 Lihat Playlist
-              </a>
+              <p>Memproduksi serial konten video podcast profil alumni dan mahasiswa PTE FPTI UPI.</p>
+              <a href="https://www.youtube.com/playlist?list=PLTQAORNXz5YqY67lGYXMJbt1NCiSOsmYO" target="_blank" rel="noopener noreferrer" class="text-link">Lihat Playlist</a>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="business" class="reveal">
+    <section id="business" class="content-section business-section">
       <div class="container">
-        <h2>Bisnis & Wirausaha</h2>
-
-        <div class="business-wrapper">
-          <article class="port-card glass-card business-card">
-            <div class="port-frame">
-              <img src="boro.jpeg" alt="BoroJepret - Boro Picture" />
-            </div>
-            <div class="port-content center-content">
-              <h3>BoroJepret (Boro Picture)</h3>
-              <p>
-                <strong>Founder & Creative Visual.</strong> Layanan profesional di bidang fotografi
-                dan videografi. Berdedikasi untuk mengabadikan momen-momen berharga melalui visual
-                yang estetik, berkualitas tinggi, dan pendekatan kreatif yang kekinian.
-              </p>
-              <a href="https://www.instagram.com/borojepret.in?igsh=MXJyZmdybG43ZWxjcA==" target="_blank" rel="noopener noreferrer" class="credential-btn">
-                📸 Lihat Instagram
-              </a>
-            </div>
-          </article>
+        <div class="section-heading reveal-up">
+          <p class="section-kicker">Bisnis & Wirausaha</p>
+          <h2>Bangun visual yang <em>punya cerita</em></h2>
         </div>
+
+        <article class="business-card project-card reveal-up">
+          <div class="project-media"><img src="boro.jpeg" alt="BoroJepret - Boro Picture" /></div>
+          <div class="project-body">
+            <span class="project-tag">Founder</span>
+            <h3>BoroJepret (Boro Picture)</h3>
+            <p><strong>Founder & Creative Visual.</strong> Layanan profesional fotografi dan videografi untuk mengabadikan momen berharga secara estetik, berkualitas tinggi, dan kekinian.</p>
+            <a href="https://www.instagram.com/borojepret.in?igsh=MXJyZmdybG43ZWxjcA==" target="_blank" rel="noopener noreferrer" class="text-link">Lihat Instagram</a>
+          </div>
+        </article>
       </div>
     </section>
   </main>
 
-  <footer id="contact">
-    <div class="container reveal">
-      <h2>Mari Berkolaborasi</h2>
-      <p>
-        Terbuka untuk diskusi proyek rekayasa teknik, produksi media, dan kepemimpinan.
-      </p>
-
-      <div class="contact-links">
-        <a href="mailto:fauzanrahmanbimo@gmail.com" class="btn btn-outline">Email</a>
-        <a href="https://wa.me/6282129570675" target="_blank" rel="noopener noreferrer" class="btn">WhatsApp</a>
-        <a href="https://linkedin.com/in/Bimorahmanfauzan/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">LinkedIn</a>
+  <footer id="contact" class="site-footer">
+    <div class="container reveal-up">
+      <div class="section-heading">
+        <p class="section-kicker">Kontak</p>
+        <h2>Mari <em>Berkolaborasi</em></h2>
       </div>
-
-      <p class="copyright">
-        © 2026 Bimo Rahman Fauzan. Creative Engineer.
-      </p>
+      <p class="footer-copy">Terbuka untuk diskusi proyek rekayasa teknik, produksi media, dan kepemimpinan.</p>
+      <div class="contact-links">
+        <a href="mailto:fauzanrahmanbimo@gmail.com" class="btn btn-secondary">Email</a>
+        <a href="https://wa.me/6282129570675" target="_blank" rel="noopener noreferrer" class="btn btn-primary">WhatsApp</a>
+        <a href="https://linkedin.com/in/Bimorahmanfauzan/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">LinkedIn</a>
+      </div>
+      <p class="copyright">© 2026 Bimo Rahman Fauzan. Creative Engineer.</p>
     </div>
   </footer>
 
-  <button class="back-to-top" type="button" aria-label="Kembali ke atas">
-    ↑
-  </button>
+  <button class="back-to-top" type="button" aria-label="Kembali ke atas">↑</button>
 
   <script src="script.js"></script>
 </body>
