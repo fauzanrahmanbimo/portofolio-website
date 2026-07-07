@@ -1,12 +1,25 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // =============================
-  // 1. EFEK TYPING
-  // =============================
+  // =========================================================
+  // BIMO PORTFOLIO INTERACTION SCRIPT
+  // Animasi dibuat mengikuti feel video referensi:
+  // - reveal lembut saat scroll
+  // - navbar pill aktif
+  // - typing text
+  // - parallax ringan
+  // - card tilt halus
+  // =========================================================
 
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // =============================
+  // 1. TYPING EFFECT
+  // =============================
+  const typingTarget = document.getElementById("typing-text");
   const words = [
     "Creative Engineer.",
-    "Video Editor Lead.",
     "IoT Developer.",
+    "Video Editor Lead.",
+    "Visual Storyteller.",
     "Tech Leader."
   ];
 
@@ -14,152 +27,172 @@ document.addEventListener("DOMContentLoaded", () => {
   let charIndex = 0;
   let isDeleting = false;
 
-  const typingTextElement = document.getElementById("typing-text");
-
-  function typeEffect() {
-    if (!typingTextElement) return;
+  function typeLoop() {
+    if (!typingTarget) return;
 
     const currentWord = words[wordIndex];
 
     if (isDeleting) {
-      typingTextElement.textContent = currentWord.substring(0, charIndex - 1);
+      typingTarget.textContent = currentWord.slice(0, charIndex - 1);
       charIndex--;
     } else {
-      typingTextElement.textContent = currentWord.substring(0, charIndex + 1);
+      typingTarget.textContent = currentWord.slice(0, charIndex + 1);
       charIndex++;
     }
 
-    let typingSpeed = isDeleting ? 55 : 95;
+    let speed = isDeleting ? 42 : 78;
 
     if (!isDeleting && charIndex === currentWord.length) {
-      typingSpeed = 1800;
+      speed = 1450;
       isDeleting = true;
-    } else if (isDeleting && charIndex === 0) {
+    }
+
+    if (isDeleting && charIndex === 0) {
       isDeleting = false;
       wordIndex = (wordIndex + 1) % words.length;
-      typingSpeed = 450;
+      speed = 420;
     }
 
-    setTimeout(typeEffect, typingSpeed);
+    window.setTimeout(typeLoop, prefersReducedMotion ? 0 : speed);
   }
 
-  typeEffect();
+  typeLoop();
 
   // =============================
-  // 2. SCROLL REVEAL
+  // 2. MOBILE NAVIGATION
   // =============================
-
-  const reveals = document.querySelectorAll(".reveal");
-
-  function revealOnScroll() {
-    const windowHeight = window.innerHeight;
-    const elementVisible = 110;
-
-    reveals.forEach((element) => {
-      const elementTop = element.getBoundingClientRect().top;
-
-      if (elementTop < windowHeight - elementVisible) {
-        element.classList.add("active");
-      }
-    });
-  }
-
-  window.addEventListener("scroll", revealOnScroll);
-  revealOnScroll();
-
-  // =============================
-  // 3. HEADER SAAT SCROLL
-  // =============================
-
-  const header = document.querySelector("header");
-
-  function handleHeaderScroll() {
-    if (!header) return;
-
-    if (window.scrollY > 40) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
-  }
-
-  window.addEventListener("scroll", handleHeaderScroll);
-  handleHeaderScroll();
-
-  // =============================
-  // 4. NAVBAR MOBILE
-  // =============================
-
   const menuToggle = document.querySelector(".menu-toggle");
   const navMenu = document.querySelector(".nav-menu");
   const navLinks = document.querySelectorAll(".nav-menu a");
 
+  function closeMenu() {
+    if (!menuToggle || !navMenu) return;
+    menuToggle.classList.remove("active");
+    navMenu.classList.remove("active");
+    menuToggle.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("no-scroll");
+  }
+
   if (menuToggle && navMenu) {
     menuToggle.addEventListener("click", () => {
-      menuToggle.classList.toggle("active");
-      navMenu.classList.toggle("active");
+      const isOpen = navMenu.classList.toggle("active");
+      menuToggle.classList.toggle("active", isOpen);
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      document.body.classList.toggle("no-scroll", isOpen);
     });
 
     navLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        menuToggle.classList.remove("active");
-        navMenu.classList.remove("active");
-      });
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeMenu();
     });
   }
 
   // =============================
-  // 5. NAVBAR ACTIVE SECTION
+  // 3. HEADER SCROLL STATE
   // =============================
+  const header = document.querySelector(".site-header");
 
+  function updateHeader() {
+    if (!header) return;
+    header.classList.toggle("scrolled", window.scrollY > 24);
+  }
+
+  window.addEventListener("scroll", updateHeader, { passive: true });
+  updateHeader();
+
+  // =============================
+  // 4. SCROLL REVEAL
+  // =============================
+  const revealElements = document.querySelectorAll(".reveal-up, .reveal-scale");
+
+  if (prefersReducedMotion) {
+    revealElements.forEach((element) => element.classList.add("is-visible"));
+  } else {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.16,
+        rootMargin: "0px 0px -70px 0px"
+      }
+    );
+
+    revealElements.forEach((element, index) => {
+      element.style.transitionDelay = `${Math.min(index % 6, 5) * 70}ms`;
+      revealObserver.observe(element);
+    });
+  }
+
+  // =============================
+  // 5. ACTIVE NAV LINK
+  // =============================
   const sections = document.querySelectorAll("section[id], footer[id]");
 
-  function setActiveNav() {
-    let currentSection = "";
+  function setActiveLink() {
+    let currentId = "hero";
 
     sections.forEach((section) => {
-      const sectionTop = section.offsetTop - 150;
-      const sectionHeight = section.offsetHeight;
+      const sectionTop = section.offsetTop - 160;
+      const sectionBottom = sectionTop + section.offsetHeight;
 
-      if (
-        window.scrollY >= sectionTop &&
-        window.scrollY < sectionTop + sectionHeight
-      ) {
-        currentSection = section.getAttribute("id");
+      if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
+        currentId = section.getAttribute("id") || currentId;
       }
     });
 
     navLinks.forEach((link) => {
-      link.classList.remove("active");
-
-      if (link.getAttribute("href") === `#${currentSection}`) {
-        link.classList.add("active");
-      }
+      link.classList.toggle("active", link.getAttribute("href") === `#${currentId}`);
     });
   }
 
-  window.addEventListener("scroll", setActiveNav);
-  setActiveNav();
+  window.addEventListener("scroll", setActiveLink, { passive: true });
+  setActiveLink();
 
   // =============================
-  // 6. EFEK TILT HALUS PADA CARD
+  // 6. SMOOTH SCROLL OFFSET FIX
   // =============================
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", (event) => {
+      const targetId = anchor.getAttribute("href");
+      if (!targetId || targetId === "#") return;
 
-  const cards = document.querySelectorAll(".glass-card");
+      const target = document.querySelector(targetId);
+      if (!target) return;
+
+      event.preventDefault();
+      const offset = targetId === "#hero" ? 0 : 92;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+
+      window.scrollTo({
+        top,
+        behavior: prefersReducedMotion ? "auto" : "smooth"
+      });
+    });
+  });
+
+  // =============================
+  // 7. CARD TILT EFFECT
+  // =============================
+  const cards = document.querySelectorAll(".feature-card, .project-card, .stat-card");
 
   cards.forEach((card) => {
     card.addEventListener("mousemove", (event) => {
-      if (window.innerWidth <= 768) return;
+      if (prefersReducedMotion || window.innerWidth <= 760) return;
 
       const rect = card.getBoundingClientRect();
       const x = event.clientX - rect.left;
       const y = event.clientY - rect.top;
-
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-
-      const rotateX = ((y - centerY) / centerY) * -3;
-      const rotateY = ((x - centerX) / centerX) * 3;
+      const rotateX = ((y / rect.height) - 0.5) * -5;
+      const rotateY = ((x / rect.width) - 0.5) * 5;
 
       card.style.transform = `translateY(-10px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     });
@@ -170,12 +203,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // =============================
-  // 7. CURSOR GLOW
+  // 8. CURSOR GLOW
   // =============================
-
   const cursorGlow = document.querySelector(".cursor-glow");
 
-  if (cursorGlow) {
+  if (cursorGlow && !prefersReducedMotion) {
     document.addEventListener("mousemove", (event) => {
       cursorGlow.style.left = `${event.clientX}px`;
       cursorGlow.style.top = `${event.clientY}px`;
@@ -188,52 +220,57 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // =============================
-  // 8. BACK TO TOP BUTTON
+  // 9. HERO PARALLAX
   // =============================
+  const orbOne = document.querySelector(".hero-orb-1");
+  const orbTwo = document.querySelector(".hero-orb-2");
+  const illustration = document.querySelector(".hero-illustration");
 
-  const backToTopButton = document.querySelector(".back-to-top");
+  function updateParallax() {
+    if (prefersReducedMotion || window.innerWidth <= 760) return;
 
-  function handleBackToTopVisibility() {
-    if (!backToTopButton) return;
-
-    if (window.scrollY > 550) {
-      backToTopButton.classList.add("show");
-    } else {
-      backToTopButton.classList.remove("show");
-    }
+    const scrollY = window.scrollY;
+    if (orbOne) orbOne.style.transform = `translate3d(${scrollY * 0.03}px, ${scrollY * -0.02}px, 0)`;
+    if (orbTwo) orbTwo.style.transform = `translate3d(${scrollY * -0.035}px, ${scrollY * 0.018}px, 0)`;
+    if (illustration) illustration.style.marginBottom = `${scrollY * -0.04}px`;
   }
 
-  if (backToTopButton) {
-    backToTopButton.addEventListener("click", () => {
+  window.addEventListener("scroll", updateParallax, { passive: true });
+  updateParallax();
+
+  // =============================
+  // 10. BACK TO TOP
+  // =============================
+  const backToTop = document.querySelector(".back-to-top");
+
+  function updateBackToTop() {
+    if (!backToTop) return;
+    backToTop.classList.toggle("show", window.scrollY > 560);
+  }
+
+  if (backToTop) {
+    backToTop.addEventListener("click", () => {
       window.scrollTo({
         top: 0,
-        behavior: "smooth"
+        behavior: prefersReducedMotion ? "auto" : "smooth"
       });
     });
   }
 
-  window.addEventListener("scroll", handleBackToTopVisibility);
-  handleBackToTopVisibility();
+  window.addEventListener("scroll", updateBackToTop, { passive: true });
+  updateBackToTop();
 
   // =============================
-  // 9. EFEK MASUK HERO
+  // 11. IMAGE FALLBACK
+  // Jika nama file gambar salah/tidak ditemukan,
+  // card tetap terlihat rapi, tidak kosong.
   // =============================
-
-  const heroTitle = document.querySelector("#hero h1");
-  const heroTags = document.querySelectorAll(".hero-tag-left, .hero-tag-right");
-  const heroTyping = document.querySelector(".typing-container");
-  const heroButton = document.querySelector("#hero .btn");
-
-  const heroItems = [heroTitle, ...heroTags, heroTyping, heroButton].filter(Boolean);
-
-  heroItems.forEach((item, index) => {
-    item.style.opacity = "0";
-    item.style.transform = "translateY(24px)";
-
-    setTimeout(() => {
-      item.style.transition = "opacity 0.75s ease, transform 0.75s ease";
-      item.style.opacity = "1";
-      item.style.transform = "translateY(0)";
-    }, 160 * index);
+  document.querySelectorAll(".project-media img, .brand-mark img").forEach((image) => {
+    image.addEventListener("error", () => {
+      const parent = image.parentElement;
+      if (!parent) return;
+      parent.classList.add("image-missing");
+      image.style.display = "none";
+    });
   });
 });
