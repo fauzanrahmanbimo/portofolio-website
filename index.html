@@ -13,8 +13,22 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="preloader" aria-hidden="true">
+    <div class="preloader-ring"></div>
+    <div class="preloader-text"><em>Bimo</em> Portfolio</div>
+  </div>
+
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
   <div class="cursor-glow" aria-hidden="true"></div>
   <div class="page-noise" aria-hidden="true"></div>
+  <div class="floating-particles" aria-hidden="true"></div>
+  <div class="ambient-shapes" aria-hidden="true">
+    <span class="shape shape-1"></span>
+    <span class="shape shape-2"></span>
+    <span class="shape shape-3"></span>
+    <span class="shape shape-4"></span>
+  </div>
 
   <header class="site-header">
     <nav class="navbar" aria-label="Navigasi utama">
@@ -41,7 +55,7 @@
     </nav>
   </header>
 
-  <main>
+  <main data-scroll-container>
     <section id="hero" class="hero-section">
       <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
       <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
@@ -71,8 +85,14 @@
         </p>
 
         <div class="hero-actions reveal-up">
-          <a href="#portfolio" class="btn btn-primary">Lihat Karya</a>
-          <a href="#contact" class="btn btn-secondary">Hubungi Saya</a>
+          <a href="#portfolio" class="btn btn-primary magnetic-btn">Lihat Karya</a>
+          <a href="#contact" class="btn btn-secondary magnetic-btn">Hubungi Saya</a>
+        </div>
+
+        <div class="hero-mini-cards" aria-hidden="true">
+          <span class="mini-card mini-card-1">IoT</span>
+          <span class="mini-card mini-card-2">AI</span>
+          <span class="mini-card mini-card-3">Video</span>
         </div>
       </div>
 
