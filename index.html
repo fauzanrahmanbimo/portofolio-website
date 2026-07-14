@@ -3,355 +3,111 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portofolio Bimo Rahman Fauzan — Creative Engineer, IoT Developer, Video Editor Lead, dan Tech Leader." />
-  <title>Bimo Rahman Fauzan | Creative Engineer</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
+  <title>Bimo Rahman Fauzan — Portofolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="preloader" aria-hidden="true">
-    <div class="preloader-ring"></div>
-    <div class="preloader-text"><em>Bimo</em> Portfolio</div>
-  </div>
 
-  <div class="scroll-progress" aria-hidden="true"><span></span></div>
-  <div class="cursor-dot" aria-hidden="true"></div>
-  <div class="cursor-glow" aria-hidden="true"></div>
-  <div class="page-noise" aria-hidden="true"></div>
-  <div class="floating-particles" aria-hidden="true"></div>
-  <div class="ambient-shapes" aria-hidden="true">
-    <span class="shape shape-1"></span>
-    <span class="shape shape-2"></span>
-    <span class="shape shape-3"></span>
-    <span class="shape shape-4"></span>
-  </div>
-
-  <header class="site-header">
-    <nav class="navbar" aria-label="Navigasi utama">
-      <a href="#hero" class="brand" aria-label="Bimo Rahman Fauzan">
-        <span class="brand-mark">
-          <img src="BIMO.png" alt="Foto profil Bimo Rahman Fauzan" />
-        </span>
-        <span class="brand-text">Bimo</span>
-      </a>
-
-      <button class="menu-toggle" type="button" aria-label="Buka menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-      <ul class="nav-menu">
-        <li><a href="#about">Tentang</a></li>
-        <li><a href="#skills">Keahlian</a></li>
-        <li><a href="#portfolio">Portofolio</a></li>
-        <li><a href="#business">Bisnis</a></li>
-        <li><a href="#contact" class="nav-cta">Kontak</a></li>
-      </ul>
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar">
+    <a href="#home" class="logo">Bimo R. Fauzan</a>
+    <nav>
+      <a href="#tentang">Tentang</a>
+      <a href="#sertifikat">Sertifikat</a>
+      <a href="#kontak">Kontak</a>
     </nav>
   </header>
 
-  <main data-scroll-container>
-    <section id="hero" class="hero-section">
-      <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
-      <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+  <!-- ===== HERO ===== -->
+  <section id="home" class="hero">
+    <img src="BIMO.png" alt="Foto Bimo Rahman Fauzan" class="hero-photo" />
+    <h1>Bimo Rahman Fauzan</h1>
+    <p class="hero-sub">Mahasiswa Pendidikan Teknik Elektro · Multimedia &amp; Video Editing · AI &amp; Data</p>
+    <a href="#sertifikat" class="btn">Lihat Prestasi &amp; Sertifikat</a>
+  </section>
 
-      <div class="hero-inner">
-        <div class="social-proof reveal-up">
-          <span class="avatar-stack" aria-hidden="true">
-            <span></span><span></span><span></span><span></span>
-          </span>
-          <p>Creative engineer dengan pengalaman multimedia, IoT, dan leadership.</p>
-        </div>
+  <!-- ===== TENTANG ===== -->
+  <section id="tentang" class="section">
+    <h2>Tentang Saya</h2>
+    <p class="tentang-text">
+      <!-- ← EDIT teks perkenalan di bawah ini -->
+      Saya mahasiswa Pendidikan Teknik Elektro yang berfokus pada dunia multimedia,
+      video editing, dan pemanfaatan AI &amp; data. Saya senang menggabungkan sisi
+      teknik dengan kreativitas untuk menghasilkan karya yang berdampak.
+    </p>
+  </section>
 
-        <div class="hero-title-wrap" aria-label="Bimo Rahman Fauzan Creative Engineer">
-          <p class="eyebrow reveal-up">CREATIVE ENGINEER</p>
-          <h1 class="hero-title">
-            <span class="line"><em>Bimo</em> Rahman</span>
-            <span class="line">Fauzan</span>
-          </h1>
-          <p class="hero-subtitle reveal-up">
-            Saya seorang <span id="typing-text"></span><span class="typing-cursor">|</span>
-          </p>
-        </div>
+  <!-- ===== SERTIFIKAT & PENGHARGAAN ===== -->
+  <section id="sertifikat" class="section">
+    <h2>Sertifikat &amp; Penghargaan</h2>
+    <div class="cert-grid">
 
-        <p class="hero-copy reveal-up">
-          Menggabungkan teknik elektro, IoT, AI, produksi media, dan visual storytelling
-          untuk membangun karya yang fungsional, komunikatif, dan berdampak.
-        </p>
-
-        <div class="hero-actions reveal-up">
-          <a href="#portfolio" class="btn btn-primary magnetic-btn">Lihat Karya</a>
-          <a href="#contact" class="btn btn-secondary magnetic-btn">Hubungi Saya</a>
-        </div>
-
-        <div class="hero-mini-cards" aria-hidden="true">
-          <span class="mini-card mini-card-1">IoT</span>
-          <span class="mini-card mini-card-2">AI</span>
-          <span class="mini-card mini-card-3">Video</span>
+      <!-- 🏆 SERTIFIKAT UNGGULAN: JUARA 1 -->
+      <div class="cert-card cert-featured">
+        <span class="cert-badge">🏆 Juara 1</span>
+        <img src="sertifikat_juara1_video.jpg"
+             alt="Sertifikat Juara 1 Educational Video Competition 2026"
+             loading="lazy" onclick="openCertModal(this.src)" />
+        <div class="cert-info">
+          <h3>Juara 1 — Educational Video Competition 2026</h3>
+          <p>Tema "Aksi Mahasiswa" · Gandawesi × River Cleanup Indonesia × UPI · Mei 2026</p>
         </div>
       </div>
 
-      <div class="hero-illustration reveal-scale" aria-hidden="true">
-        <div class="desk-card">
-          <div class="desk-line line-1"></div>
-          <div class="desk-line line-2"></div>
-          <div class="desk-monitor"></div>
-          <div class="desk-person"></div>
-          <div class="desk-plant"></div>
-        </div>
+      <!-- Sertifikat lainnya (← EDIT judul & deskripsi sesuai aslinya) -->
+      <div class="cert-card">
+        <img src="sertifikat_salesforce.jpg" alt="Sertifikat Salesforce"
+             loading="lazy" onclick="openCertModal(this.src)" />
+        <div class="cert-info"><h3>Salesforce</h3><p>Sertifikat pelatihan</p></div>
       </div>
 
-      <a href="#about" class="scroll-hint" aria-label="Scroll ke bagian Tentang">
-        <span></span>
-      </a>
-    </section>
-
-    <section id="about" class="content-section about-section">
-      <div class="container">
-        <div class="section-heading reveal-up">
-          <p class="section-kicker">Tentang Saya</p>
-          <h2><em>Rekayasa</em> bertemu visual kreatif</h2>
-        </div>
-
-        <div class="about-grid">
-          <article class="feature-card about-main reveal-up">
-            <p>
-              Mahasiswa Pendidikan Teknik Elektro di Universitas Pendidikan Indonesia dengan IPK 3.98.
-              Saya adalah seorang <strong>Creative Engineer</strong> yang menggabungkan kedisiplinan
-              rekayasa teknik dengan keahlian multimedia visual. Memiliki rekam jejak profesional
-              memimpin produksi puluhan konten digital berstandar industri, serta kompetensi adaptif
-              di bidang teknologi dan komunikasi.
-            </p>
-          </article>
-
-          <div class="stats-grid reveal-up">
-            <article class="stat-card">
-              <strong>3.98</strong>
-              <span>IPK Akademik</span>
-            </article>
-            <article class="stat-card">
-              <strong>75+</strong>
-              <span>Video Diproduksi</span>
-            </article>
-            <article class="stat-card">
-              <strong>2025</strong>
-              <span>Salesforce Talent</span>
-            </article>
-          </div>
-        </div>
+      <div class="cert-card">
+        <img src="huawei-iot.jpeg" alt="Sertifikat Huawei IoT"
+             loading="lazy" onclick="openCertModal(this.src)" />
+        <div class="cert-info"><h3>Huawei IoT</h3><p>Sertifikat pelatihan</p></div>
       </div>
-    </section>
 
-    <section id="skills" class="content-section skills-section">
-      <div class="container">
-        <div class="section-heading reveal-up">
-          <p class="section-kicker">Keahlian & Sertifikasi</p>
-          <h2>Bangun skill yang <em>siap industri</em></h2>
-        </div>
-
-        <div class="skills-grid">
-          <article class="feature-card skill-card reveal-up">
-            <span class="card-icon">⚙️</span>
-            <h3>Technical Engineering</h3>
-            <p>Artificial Intelligence implementation, Internet of Things concepts, dan data analysis.</p>
-          </article>
-
-          <article class="feature-card skill-card reveal-up">
-            <span class="card-icon">🎬</span>
-            <h3>Multimedia Production</h3>
-            <p>Video editing, videography, photography, visual storytelling, CapCut, Lightroom, Premiere, dan Canva.</p>
-          </article>
-
-          <article class="feature-card skill-card reveal-up">
-            <span class="card-icon">💼</span>
-            <h3>Leadership</h3>
-            <p>Creative leadership, project management, public speaking, team collaboration, dan time management.</p>
-          </article>
-        </div>
-
-        <div class="marquee reveal-up" aria-label="Daftar kompetensi">
-          <div class="marquee-track">
-            <span>AI</span><span>IoT</span><span>Video Editing</span><span>Photography</span><span>Leadership</span><span>Data Analysis</span>
-            <span>AI</span><span>IoT</span><span>Video Editing</span><span>Photography</span><span>Leadership</span><span>Data Analysis</span>
-          </div>
-        </div>
-
-        <div class="portfolio-grid certificate-grid">
-          <article class="project-card reveal-up">
-            <div class="project-media certificate-media"><img src="WhatsApp Image 2026-02-24 at 23.52.03 (1).jpeg" alt="Sertifikat Associate Data Scientist" /></div>
-            <div class="project-body">
-              <span class="project-tag">BNSP</span>
-              <h3>Associate Data Scientist</h3>
-              <p>Lisensi resmi dari Badan Nasional Sertifikasi Profesi melalui LSP Informatika.</p>
-              <a href="WhatsApp Image 2026-02-24 at 23.52.03 (1).jpeg" target="_blank" rel="noopener noreferrer" class="text-link">Lihat Sertifikat</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal-up">
-            <div class="project-media certificate-media"><img src="huawei-iot.jpeg" alt="Sertifikat Huawei AI dan IoT" /></div>
-            <div class="project-body">
-              <span class="project-tag">Huawei</span>
-              <h3>AI & IoT Certification</h3>
-              <p>Sertifikasi kompetensi adaptif teknologi dari Huawei Talent.</p>
-              <a href="huawei-iot.jpeg" target="_blank" rel="noopener noreferrer" class="text-link">Lihat Sertifikat</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal-up">
-            <div class="project-media certificate-media"><img src="sertifikat_salesforce.jpg" alt="Sertifikat Salesforce Talent Accelerator" /></div>
-            <div class="project-body">
-              <span class="project-tag">Salesforce</span>
-              <h3>Talent Accelerator</h3>
-              <p>Sertifikat kelulusan program akselerasi talenta intensif Trailhead & Capstone.</p>
-              <a href="sertifikat_salesforce.jpg" target="_blank" rel="noopener noreferrer" class="text-link">Lihat Sertifikat</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal-up">
-            <div class="project-media certificate-media"><img src="certifikat_peer.jpg" alt="Sertifikat Peer Facilitator InnovAItion" /></div>
-            <div class="project-body">
-              <span class="project-tag">Facilitator</span>
-              <h3>Peer Facilitator InnovAItion</h3>
-              <p>Penghargaan dedikasi dari Plan International Indonesia & Kemenpora.</p>
-              <a href="certifikat_peer.jpg" target="_blank" rel="noopener noreferrer" class="text-link">Lihat Sertifikat</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal-up">
-            <div class="project-media certificate-media"><img src="Sertifikat_plan_1.jpg" alt="Sertifikat Training Berinovasi dengan AI" /></div>
-            <div class="project-body">
-              <span class="project-tag">AI Training</span>
-              <h3>Berinovasi dengan AI</h3>
-              <p>Pelatihan kompetensi Artificial Intelligence 15 jam pelajaran.</p>
-              <a href="Sertifikat_plan_1.jpg" target="_blank" rel="noopener noreferrer" class="text-link">Lihat Sertifikat</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal-up">
-            <div class="project-media certificate-media"><img src="BOOTCAMP MSIB.jpg" alt="Sertifikat MSIB Boostcamp 2025" /></div>
-            <div class="project-body">
-              <span class="project-tag">Career</span>
-              <h3>MSIB Boostcamp 2025</h3>
-              <p>Pelatihan karir intensif Skill Boosted, Career Unlocked.</p>
-              <a href="BOOTCAMP MSIB.jpg" target="_blank" rel="noopener noreferrer" class="text-link">Lihat Sertifikat</a>
-            </div>
-          </article>
-        </div>
+      <div class="cert-card">
+        <img src="BOOTCAMP MSIB.jpg" alt="Sertifikat Bootcamp MSIB"
+             loading="lazy" onclick="openCertModal(this.src)" />
+        <div class="cert-info"><h3>Bootcamp MSIB</h3><p>Program magang &amp; studi</p></div>
       </div>
-    </section>
 
-    <section id="portfolio" class="content-section portfolio-section">
-      <div class="container">
-        <div class="section-heading reveal-up">
-          <p class="section-kicker">Karya & Track Record</p>
-          <h2>Portofolio nyata, <em>bukan sekadar tampilan</em></h2>
-        </div>
-
-        <div class="portfolio-grid">
-          <article class="project-card reveal-up">
-            <div class="project-media certificate-media"><img src="sertif_baktimilenial_bimo.jpg" alt="Sertifikat Bakti Milenial Foundation" /></div>
-            <div class="project-body">
-              <span class="project-tag">Video Lead</span>
-              <h3>Head of Video Editor</h3>
-              <p><strong>Bakti Milenial Foundation.</strong> Memimpin tim editing dan memproduksi 75+ video multi-platform dalam 3 bulan.</p>
-              <a href="sertif_baktimilenial_bimo.jpg" target="_blank" rel="noopener noreferrer" class="text-link">Lihat Detail</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal-up">
-            <div class="project-media"><img src="ndp.jpg" alt="Nonton Di Pojokan" /></div>
-            <div class="project-body">
-              <span class="project-tag">Content</span>
-              <h3>Nonton Di Pojokan</h3>
-              <p>Produksi tayangan video hiburan dan diskusi dengan konsep visual kreatif bergaya retro TV.</p>
-              <a href="https://www.youtube.com/watch?v=y83QNT0HTlU" target="_blank" rel="noopener noreferrer" class="text-link">Tonton Video</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal-up">
-            <div class="project-media"><img src="tutorial.jpeg" alt="Tutorial UPI" /></div>
-            <div class="project-body">
-              <span class="project-tag">Campus Media</span>
-              <h3>Ketua Multimedia Biro Visual</h3>
-              <p><strong>Tutorial UPI.</strong> Mengelola strategi konten dan memimpin produksi video aftermovie & live report.</p>
-              <a href="https://www.instagram.com/tutorialupi?igsh=MThzNDk2bGgxamxscg==" target="_blank" rel="noopener noreferrer" class="text-link">Lihat Instagram</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal-up">
-            <div class="project-media"><img src="sre.jpeg" alt="SRE UPI" /></div>
-            <div class="project-body">
-              <span class="project-tag">Campaign</span>
-              <h3>Ketua Pelaksana Content Hub</h3>
-              <p><strong>SRE UPI.</strong> Memimpin kampanye konten edukasi energi terbarukan dari ide sampai publikasi.</p>
-              <a href="https://www.instagram.com/sre.upi?igsh=cmhkdWc3bmd1OHJv" target="_blank" rel="noopener noreferrer" class="text-link">Lihat Instagram</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal-up">
-            <div class="project-media"><img src="studio_medkreinfo.jpg" alt="Studi Medkreinfo" /></div>
-            <div class="project-body">
-              <span class="project-tag">Education</span>
-              <h3>Studi Medkreinfo</h3>
-              <p>Merancang kurikulum dan menjalankan pelatihan fotografi, videografi, dan desain grafis.</p>
-            </div>
-          </article>
-
-          <article class="project-card reveal-up">
-            <div class="project-media"><img src="podcast_pte.jpg" alt="Podcast PTE FPTI UPI" /></div>
-            <div class="project-body">
-              <span class="project-tag">Podcast</span>
-              <h3>Podcast PTE</h3>
-              <p>Memproduksi serial konten video podcast profil alumni dan mahasiswa PTE FPTI UPI.</p>
-              <a href="https://www.youtube.com/playlist?list=PLTQAORNXz5YqY67lGYXMJbt1NCiSOsmYO" target="_blank" rel="noopener noreferrer" class="text-link">Lihat Playlist</a>
-            </div>
-          </article>
-        </div>
+      <div class="cert-card">
+        <img src="sertif_baktimilenial_bimo.jpg" alt="Sertifikat Bakti Milenial"
+             loading="lazy" onclick="openCertModal(this.src)" />
+        <div class="cert-info"><h3>Bakti Milenial</h3><p>Sertifikat kegiatan</p></div>
       </div>
-    </section>
 
-    <section id="business" class="content-section business-section">
-      <div class="container">
-        <div class="section-heading reveal-up">
-          <p class="section-kicker">Bisnis & Wirausaha</p>
-          <h2>Bangun visual yang <em>punya cerita</em></h2>
-        </div>
+      <div class="cert-card">
+        <img src="certifikat_peer.jpg" alt="Sertifikat Peer"
+             loading="lazy" onclick="openCertModal(this.src)" />
+        <div class="cert-info"><h3>Peer Program</h3><p>Sertifikat kegiatan</p></div>
+      </div>
 
-        <article class="business-card project-card reveal-up">
-          <div class="project-media"><img src="boro.jpeg" alt="BoroJepret - Boro Picture" /></div>
-          <div class="project-body">
-            <span class="project-tag">Founder</span>
-            <h3>BoroJepret (Boro Picture)</h3>
-            <p><strong>Founder & Creative Visual.</strong> Layanan profesional fotografi dan videografi untuk mengabadikan momen berharga secara estetik, berkualitas tinggi, dan kekinian.</p>
-            <a href="https://www.instagram.com/borojepret.in?igsh=MXJyZmdybG43ZWxjcA==" target="_blank" rel="noopener noreferrer" class="text-link">Lihat Instagram</a>
-          </div>
-        </article>
+      <div class="cert-card">
+        <img src="Sertifikat_plan_1.jpg" alt="Sertifikat 1"
+             loading="lazy" onclick="openCertModal(this.src)" />
+        <div class="cert-info"><h3>Sertifikat</h3><p>← EDIT judul</p></div>
       </div>
-    </section>
-  </main>
 
-  <footer id="contact" class="site-footer">
-    <div class="container reveal-up">
-      <div class="section-heading">
-        <p class="section-kicker">Kontak</p>
-        <h2>Mari <em>Berkolaborasi</em></h2>
-      </div>
-      <p class="footer-copy">Terbuka untuk diskusi proyek rekayasa teknik, produksi media, dan kepemimpinan.</p>
-      <div class="contact-links">
-        <a href="mailto:fauzanrahmanbimo@gmail.com" class="btn btn-secondary">Email</a>
-        <a href="https://wa.me/6282129570675" target="_blank" rel="noopener noreferrer" class="btn btn-primary">WhatsApp</a>
-        <a href="https://linkedin.com/in/Bimorahmanfauzan/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">LinkedIn</a>
-      </div>
-      <p class="copyright">© 2026 Bimo Rahman Fauzan. Creative Engineer.</p>
     </div>
-  </footer>
+  </section>
 
-  <button class="back-to-top" type="button" aria-label="Kembali ke atas">↑</button>
+  <!-- ===== KONTAK ===== -->
+  <section id="kontak" class="section">
+    <h2>Kontak</h2>
+    <p>Email: <a href="mailto:bimorf.baktimilenial@gmail.com">bimorf.baktimilenial@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/fauzanrahmanbimo" target="_blank">@fauzanrahmanbimo</a></p>
+  </section>
+
+  <footer>© 2026 Bimo Rahman Fauzan</footer>
+
+  <!-- ===== MODAL / LIGHTBOX ===== -->
+  <div class="cert-modal" id="certModal" onclick="closeCertModal()">
+    <span class="close">&times;</span>
+    <img id="certModalImg" src="" alt="Pratinjau sertifikat" />
+  </div>
 
   <script src="script.js"></script>
 </body>
