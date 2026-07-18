@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // =========================================================
   // BIMO PORTFOLIO — ULTRA ANIMATION SCRIPT V2
-  // Banyak animasi, tanpa library tambahan.
   // =========================================================
 
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
