@@ -1498,3 +1498,19 @@ a {
   .hero-title .char,
   .marquee-track { animation: none !important; }
 }
+/* ---- LOGO BIMO ---- */
+.brand-logo {
+  height: 38px;
+  width: auto;
+  max-width: 128px;
+  object-fit: contain;
+  display: block;
+  background: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.92);
+  border-radius: 12px;
+  padding: 5px 10px;
+}
+
+@media (max-width: 760px) {
+  .brand-logo { height: 32px; max-width: 108px; padding: 4px 8px; }
+}
