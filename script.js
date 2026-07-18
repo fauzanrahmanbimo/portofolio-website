@@ -16,61 +16,39 @@ document.addEventListener("DOMContentLoaded", () => {
     }, prefersReducedMotion ? 0 : 650);
   });
 
-  // 1. SPLIT TEXT HERO PER HURUF
+  // 1. SPLIT TEXT HERO PER HURUF (mempertahankan <em> agar tetap italic)
   function splitTextToChars(selector) {
     document.querySelectorAll(selector).forEach((element) => {
       if (element.dataset.splitted === "true") return;
-      const text = element.textContent;
+      const nodes = [...element.childNodes];
       element.textContent = "";
       element.dataset.splitted = "true";
-      [...text].forEach((char, index) => {
+      let index = 0;
+
+      const appendChar = (char, target) => {
         const span = document.createElement("span");
         span.className = "char";
-        span.style.setProperty("--char-index", index);
+        span.style.setProperty("--char-index", index++);
         span.textContent = char === " " ? "\u00A0" : char;
-        element.appendChild(span);
+        target.appendChild(span);
+      };
+
+      nodes.forEach((node) => {
+        if (node.nodeType === Node.TEXT_NODE) {
+          [...node.textContent].forEach((c) => appendChar(c, element));
+        } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName.toLowerCase() === "em") {
+          const em = document.createElement("em");
+          [...node.textContent].forEach((c) => appendChar(c, em));
+          element.appendChild(em);
+        } else {
+          [...(node.textContent || "")].forEach((c) => appendChar(c, element));
+        }
       });
     });
   }
   splitTextToChars(".hero-title .line");
 
-  // 2. SPLIT SECTION HEADING PER HURUF, termasuk <em>
-  function splitHeadingChars() {
-    document.querySelectorAll(".section-heading h2").forEach((heading) => {
-      if (heading.dataset.splitted === "true") return;
-      const nodes = [...heading.childNodes];
-      heading.textContent = "";
-      heading.dataset.splitted = "true";
-      let charCounter = 0;
-
-      nodes.forEach((node) => {
-        if (node.nodeType === Node.TEXT_NODE) {
-          [...node.textContent].forEach((char) => {
-            const span = document.createElement("span");
-            span.className = "char";
-            span.style.setProperty("--char-index", charCounter++);
-            span.textContent = char === " " ? "\u00A0" : char;
-            heading.appendChild(span);
-          });
-        }
-
-        if (node.nodeType === Node.ELEMENT_NODE && node.tagName.toLowerCase() === "em") {
-          const em = document.createElement("em");
-          [...node.textContent].forEach((char) => {
-            const span = document.createElement("span");
-            span.className = "char";
-            span.style.setProperty("--char-index", charCounter++);
-            span.textContent = char === " " ? "\u00A0" : char;
-            em.appendChild(span);
-          });
-          heading.appendChild(em);
-        }
-      });
-    });
-  }
-  splitHeadingChars();
-
-  // 3. TYPING EFFECT
+  // 2. TYPING EFFECT (diperlambat agar terbaca jelas)
   const typingTarget = document.getElementById("typing-text");
   const words = [
     "Creative Engineer.",
@@ -97,21 +75,23 @@ document.addEventListener("DOMContentLoaded", () => {
       charIndex++;
     }
 
-    let speed = isDeleting ? 34 : 64;
+    // Kecepatan mengetik diperlambat
+    let speed = isDeleting ? 55 : 120;
+
     if (!isDeleting && charIndex === currentWord.length) {
-      speed = 1250;
+      speed = 2200;          // jeda lama saat kata selesai (biar sempat dibaca)
       isDeleting = true;
     }
     if (isDeleting && charIndex === 0) {
       isDeleting = false;
       wordIndex = (wordIndex + 1) % words.length;
-      speed = 330;
+      speed = 500;           // jeda sebelum kata berikutnya
     }
-    setTimeout(typeLoop, prefersReducedMotion ? 0 : speed);
+    setTimeout(typeLoop, prefersReducedMotion ? 700 : speed);
   }
   typeLoop();
 
-  // 4. FLOATING PARTICLES
+  // 3. FLOATING PARTICLES
   const particleContainer = document.querySelector(".floating-particles");
   if (particleContainer && !prefersReducedMotion && window.innerWidth > 760) {
     for (let i = 0; i < 36; i++) {
@@ -127,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // 5. MOBILE NAVIGATION
+  // 4. MOBILE NAVIGATION
   const menuToggle = document.querySelector(".menu-toggle");
   const navMenu = document.querySelector(".nav-menu");
   const navLinks = document.querySelectorAll(".nav-menu a");
@@ -153,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 6. HEADER + SCROLL PROGRESS
+  // 5. HEADER + SCROLL PROGRESS
   const header = document.querySelector(".site-header");
   const progressBar = document.querySelector(".scroll-progress span");
   function updateScrollUI() {
@@ -166,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", updateScrollUI, { passive: true });
   updateScrollUI();
 
-  // 7. SCROLL REVEAL + STAGGER
+  // 6. SCROLL REVEAL + STAGGER
   const revealElements = document.querySelectorAll(".reveal-up, .reveal-scale, .section-heading");
   if (prefersReducedMotion) {
     revealElements.forEach((el) => el.classList.add("is-visible"));
@@ -185,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 8. ACTIVE NAV LINK
+  // 7. ACTIVE NAV LINK
   const sections = document.querySelectorAll("section[id], footer[id]");
   function setActiveLink() {
     let currentId = "hero";
@@ -203,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", setActiveLink, { passive: true });
   setActiveLink();
 
-  // 9. SMOOTH SCROLL OFFSET
+  // 8. SMOOTH SCROLL OFFSET
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", (event) => {
       const targetId = anchor.getAttribute("href");
@@ -217,7 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 10. CARD TILT 3D
+  // 9. CARD TILT 3D
   const cards = document.querySelectorAll(".feature-card, .project-card, .stat-card");
   cards.forEach((card) => {
     card.addEventListener("mousemove", (event) => {
@@ -236,7 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 11. MAGNETIC BUTTON + LINK
+  // 10. MAGNETIC BUTTON + LINK
   const magneticItems = document.querySelectorAll(".btn, .text-link, .nav-menu a");
   magneticItems.forEach((item) => {
     item.addEventListener("mousemove", (event) => {
@@ -251,7 +231,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 12. RIPPLE CLICK BUTTON
+  // 11. RIPPLE CLICK BUTTON
   document.querySelectorAll(".btn").forEach((button) => {
     button.addEventListener("click", (event) => {
       const rect = button.getBoundingClientRect();
@@ -267,7 +247,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 13. CUSTOM CURSOR
+  // 12. CUSTOM CURSOR
   const cursorGlow = document.querySelector(".cursor-glow");
   const cursorDot = document.querySelector(".cursor-dot");
   if (!prefersReducedMotion && !isTouchDevice) {
@@ -302,7 +282,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 14. HERO PARALLAX MULTI-LAYER
+  // 13. HERO PARALLAX MULTI-LAYER
   const orbOne = document.querySelector(".hero-orb-1");
   const orbTwo = document.querySelector(".hero-orb-2");
   const illustration = document.querySelector(".hero-illustration");
@@ -324,7 +304,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", updateParallax, { passive: true });
   updateParallax();
 
-  // 15. BACK TO TOP
+  // 14. BACK TO TOP
   const backToTop = document.querySelector(".back-to-top");
   function updateBackToTop() {
     if (!backToTop) return;
@@ -338,7 +318,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", updateBackToTop, { passive: true });
   updateBackToTop();
 
-  // 16. IMAGE FALLBACK
+  // 15. IMAGE FALLBACK
   document.querySelectorAll(".project-media img, .brand-mark img").forEach((image) => {
     image.addEventListener("error", () => {
       const parent = image.parentElement;
