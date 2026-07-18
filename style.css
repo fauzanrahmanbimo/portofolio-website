@@ -248,7 +248,7 @@ a {
 .hero-inner {
   position: relative;
   z-index: 2;
-  width: min(880px, 100%);
+  width: min(980px, 100%);
   margin: 0 auto;
 }
 
@@ -305,19 +305,21 @@ a {
   margin-bottom: 14px;
 }
 
+/* ---- HERO TITLE: SATU BARIS ---- */
 .hero-title {
-  font-size: clamp(3.25rem, 10vw, 8.4rem);
-  line-height: 0.9;
-  letter-spacing: -0.085em;
+  font-size: clamp(1.6rem, 6.4vw, 5.6rem);
+  line-height: 1.06;
+  letter-spacing: -0.05em;
   color: var(--text-dark);
   font-weight: 800;
-  max-width: 980px;
+  max-width: 100%;
   margin: 0 auto;
+  white-space: nowrap;
+  perspective: 900px;
 }
 
 .hero-title .line {
   display: block;
-  overflow: hidden;
 }
 
 .hero-title em,
@@ -530,17 +532,29 @@ a {
 }
 
 .section-heading {
-  width: min(760px, 100%);
+  width: min(1040px, 100%);
   margin: 0 auto 44px;
   text-align: center;
 }
 
+/* ---- SECTION HEADING: default SATU BARIS ---- */
 .section-heading h2 {
-  font-size: clamp(2.1rem, 5vw, 4.3rem);
-  line-height: 1;
-  letter-spacing: -0.065em;
+  font-size: clamp(1.55rem, 4vw, 3.3rem);
+  line-height: 1.08;
+  letter-spacing: -0.045em;
   color: var(--text-dark);
   font-weight: 800;
+  white-space: nowrap;
+}
+
+.section-heading h2 em {
+  white-space: nowrap;
+}
+
+/* judul yang sengaja dibuat 2 baris rapi (Portofolio nyata,) */
+.section-heading h2.wrap-2 {
+  white-space: normal;
+  text-wrap: balance;
 }
 
 .about-grid {
@@ -883,10 +897,6 @@ a {
   animation: titleReveal 1s cubic-bezier(.22,1,.36,1) forwards;
 }
 
-.hero-title .line:nth-child(2) {
-  animation-delay: 0.12s;
-}
-
 @keyframes titleReveal {
   to {
     opacity: 1;
@@ -981,10 +991,6 @@ a {
     text-align: left;
   }
 
-  .hero-title {
-    font-size: clamp(3.2rem, 16vw, 5.4rem);
-  }
-
   .hero-copy {
     font-size: 0.94rem;
   }
@@ -1012,6 +1018,14 @@ a {
   }
 }
 
+/* Di layar kecil, judul section boleh turun baris agar tidak terpotong */
+@media (max-width: 620px) {
+  .section-heading h2 {
+    white-space: normal;
+    text-wrap: balance;
+  }
+}
+
 @media (max-width: 460px) {
   .container {
     width: min(100% - 28px, 1120px);
@@ -1023,7 +1037,7 @@ a {
   }
 
   .hero-title {
-    letter-spacing: -0.075em;
+    letter-spacing: -0.045em;
   }
 
   .hero-actions,
@@ -1036,7 +1050,7 @@ a {
   }
 
   .section-heading h2 {
-    font-size: 2.55rem;
+    font-size: 2.1rem;
   }
 
   .certificate-media,
@@ -1218,9 +1232,6 @@ a {
 }
 
 /* ---------- HERO EXTRA MOTION ---------- */
-.hero-title {
-  perspective: 900px;
-}
 .hero-title .char {
   display: inline-block;
   transform-origin: 50% 100%;
@@ -1296,23 +1307,6 @@ a {
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(166,42,19,.25), transparent);
   transform: translateX(-50%);
-}
-
-.section-heading h2 .word,
-.section-heading h2 .char {
-  display: inline-block;
-}
-.section-heading h2 .char {
-  opacity: 0;
-  transform: translateY(30px) rotate(3deg);
-}
-.section-heading.is-visible h2 .char,
-.reveal-up.is-visible .section-heading h2 .char {
-  animation: headingChar .7s cubic-bezier(.22,1,.36,1) forwards;
-  animation-delay: calc(var(--char-index) * 18ms);
-}
-@keyframes headingChar {
-  to { opacity: 1; transform: translateY(0) rotate(0); }
 }
 
 /* ---------- CARD ANIMATION DETAILS ---------- */
