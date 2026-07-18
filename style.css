@@ -1,12 +1,5 @@
 /* =========================================================
    BIMO RAHMAN FAUZAN PORTFOLIO
-   Style mengikuti rasa animasi video referensi:
-   - navbar pill mengambang
-   - headline serif italic + sans modern
-   - reveal halus saat scroll
-   - floating illustration/orb
-   - card putih/glass yang clean
-   Warna merah/oranye utama tetap dipertahankan.
    ========================================================= */
 
 :root {
@@ -1065,7 +1058,6 @@ a {
 
 /* =========================================================
    EXTRA ANIMATION PACK V2
-   Lebih banyak animasi, tetap warna merah/oranye.
    ========================================================= */
 
 /* ---------- PRELOADER ---------- */
