@@ -727,6 +727,19 @@ a {
   object-fit: contain;
 }
 
+.brand-media {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  background: #faf3e9;
+}
+
+.brand-media img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+
 .project-card:hover .project-media img {
   transform: scale(1.08);
   filter: saturate(1.08) contrast(1.03);
